@@ -19,7 +19,7 @@ class AuditConfig:
         self.base_url = None
         self.keywords = []
         self.ignore_paths = ['.git', 'node_modules', '__pycache__', '.DS_Store']
-        self.ignore_urls = ['/go/', 'cdn-cgi', 'javascript:', 'mailto:', '#', 'tel:']
+        self.ignore_urls = ['/go/', 'cdn-cgi', 'javascript:', 'mailto:', 'tel:'] # Removed '#'
         self.ignore_files = ['google', '404.html']
         self._load_from_index()
 
@@ -136,11 +136,23 @@ class SEOAuditor:
         
         # Relative vs Absolute Check
         if not href.startswith('/'):
-             self._add_issue('WARN', f"Link uses relative path: {href}", source_path, -2)
+             if href.startswith('#'):
+                 # print(f"DEBUG: Ignoring anchor {href}")
+                 pass
+             else:
+                 self._add_issue('WARN', f"Link uses relative path: {href}", source_path, -2)
              # Resolve to absolute for checking existence
              # This is tricky without a proper web server context, but we can approximate
              # For now, let's assume root-relative is the standard and required
         
+        # Unified Root Path / Canonicalization Checks (New)
+        # 1. Check for /index
+        if href.endswith('/index') or href == 'index':
+            self._add_issue('WARN', f"Link ends with 'index' (should be directory root): {href}", source_path, -2)
+
+        # 2. Trailing Slash Consistency - Moved to after existence check for accuracy
+
+
         # Dead Link Check (Local Mapping)
         # 1. Normalize href to absolute local path
         target_path = href.split('#')[0].split('?')[0] # Remove fragment/query
@@ -154,6 +166,7 @@ class SEOAuditor:
         
         # Check possibilities
         exists = False
+        is_directory = False
         
         # Case 1: Direct file
         if os.path.isfile(local_target):
@@ -164,10 +177,25 @@ class SEOAuditor:
         # Case 3: index.html inside directory
         elif os.path.isdir(local_target) and os.path.isfile(os.path.join(local_target, 'index.html')):
             exists = True
+            is_directory = True
             
         if not exists:
             self._add_issue('ERROR', f"Dead link detected: {href}", source_path, -10)
         else:
+            # Trailing Slash Check (Context-Aware)
+            # Use path without fragment for slash check
+            href_path = href.split('#')[0].split('?')[0]
+            
+            # Skip check for pure anchors or empty paths
+            if not href_path:
+                pass
+            elif is_directory:
+                if not href_path.endswith('/'):
+                    self._add_issue('WARN', f"Directory link missing trailing slash: {href}", source_path, -1)
+            else:
+                if href_path.endswith('/') and len(href_path) > 1:
+                    self._add_issue('WARN', f"File link has trailing slash: {href}", source_path, -1)
+
             # Record for Orphan check (using normalized cleaned path as key)
             # We use the relative path of the target file as the key
             normalized_key = None

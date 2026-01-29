@@ -3,6 +3,7 @@ import glob
 from bs4 import BeautifulSoup
 import sys
 import datetime
+import json
 
 # Configuration
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +20,7 @@ class SmartExtractor:
         nav = self.soup.find('nav')
         if nav:
             # Clean up active states if necessary, or ensure links are root relative
-            self._standardize_links(nav)
+            self._standardize_links(nav, convert_anchors=True)
 
             # Ensure logo points to SVG if referenced
             logo_img = nav.find('img', alt=lambda x: x and 'logo' in x.lower())
@@ -30,7 +31,7 @@ class SmartExtractor:
     def get_footer(self):
         footer = self.soup.find('footer')
         if footer:
-            self._standardize_links(footer)
+            self._standardize_links(footer, convert_anchors=True)
         return footer
 
     def get_favicons(self):
@@ -54,20 +55,34 @@ class SmartExtractor:
             favicons.append(new_tag)
         return favicons
 
-    def _standardize_links(self, element):
+    def _standardize_links(self, element, convert_anchors=False):
         """Helper to ensure links and resources in an element are root-relative and clean."""
         # 1. Standardize Links (a tags)
         for a in element.find_all('a', href=True):
             href = a['href']
             
             # Skip external/special links
-            if href.startswith(('http', '//', '#', 'mailto:', 'tel:', 'javascript:', 'data:')):
+            if href.startswith(('http', '//', 'mailto:', 'tel:', 'javascript:', 'data:')):
+                continue
+
+            # Handle Anchors
+            if href.startswith('#'):
+                if convert_anchors and href != '#':
+                    href = '/' + href
+                    a['href'] = href
                 continue
 
             # Clean URL: Remove .html suffix
             if href.endswith('.html'):
                 href = href[:-5]
                 if not href: href = '/' # index.html -> /
+            
+            # Clean URL: Remove /index suffix
+            if href.endswith('/index'):
+                href = href[:-5] # remove index (leaving trailing slash if exists? wait. /blog/index -> /blog/)
+                # if href was "index", it became "" -> "/"
+                # if href was "blog/index", it becomes "blog/"
+
             
             # Force Root Relative Path (ensure starts with /)
             if not href.startswith('/'):
@@ -169,7 +184,7 @@ class HeadReconstructor:
 
         for s in schemas:
             script_schema = self.soup.new_tag('script', type="application/ld+json")
-            script_schema.string = str(s)
+            script_schema.string = json.dumps(s, ensure_ascii=False, indent=2)
             head.append(script_schema)
 
 class SchemaGenerator:
@@ -278,7 +293,7 @@ class SchemaGenerator:
         return [website, org, product, faq]
 
     def get_blog_schema(self):
-        return [{
+        blog_posting = {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": self.metadata.get('title'),
@@ -299,8 +314,35 @@ class SchemaGenerator:
                     "url": f"{self.base_url}/logo.svg"
                 }
             },
-            "datePublished": datetime.date.today().isoformat() # Ideally parse from content
-        }]
+            "datePublished": datetime.date.today().isoformat()
+        }
+
+        breadcrumb = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "首页",
+                    "item": self.base_url
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "博客",
+                    "item": f"{self.base_url}/blog/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": self.metadata.get('title'),
+                    "item": self.metadata.get('url')
+                }
+            ]
+        }
+        
+        return [blog_posting, breadcrumb]
 
     def get_static_page_schema(self):
         return [{
@@ -343,6 +385,31 @@ class ContentInjector:
         # Insert new footer at the end of body (before scripts if any?)
         # Just append to body is usually fine for footer
         body.append(footer_html)
+
+    def inject_breadcrumbs(self, title):
+        main = self.soup.find('main')
+        if not main: return
+        
+        # Remove existing breadcrumbs if any (to avoid duplicates on rebuild)
+        existing_bc = main.find('nav', attrs={"aria-label": "Breadcrumb"})
+        if existing_bc:
+            existing_bc.decompose()
+            
+        bc_html = f"""
+        <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 mb-8 pt-6">
+          <ol class="flex items-center space-x-2 text-sm text-slate-400">
+            <li><a href="/" class="hover:text-white transition">首页</a></li>
+            <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
+            <li><a href="/blog/" class="hover:text-white transition">博客</a></li>
+            <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
+            <li class="text-slate-200 font-medium truncate" aria-current="page">{title}</li>
+          </ol>
+        </nav>
+        """
+        bc_soup = BeautifulSoup(bc_html, 'html.parser')
+        
+        # Insert at the beginning of main
+        main.insert(0, bc_soup)
 
     def inject_recommended(self):
         article = self.soup.find('article')
@@ -493,6 +560,8 @@ def main():
         injector.inject_footer(footer)
         
         if not is_index:
+             if page_type == 'blog':
+                 injector.inject_breadcrumbs(title)
              injector.inject_recommended()
 
         # Save

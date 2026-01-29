@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro
+  </title>
+  <meta content="深度解析Cursor无限续杯的原理与方法（邮箱注册法、机器码重置脚本），揭示其潜在风险与模型限制。为您提供稳定、安全的Cursor Pro官方会员获取指南，告别折腾，专注编程。" name="description"/>
+  <meta content="cursor, ai, code editor" name="keywords"/>
+  <link href="https://cursor-vip.pro/blog/cursor-unlimited" rel="canonical"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="zh-cn" http-equiv="content-language"/>
+  <meta content="Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro" property="og:title"/>
+  <meta content="深度解析Cursor无限续杯的原理与方法（邮箱注册法、机器码重置脚本），揭示其潜在风险与模型限制。为您提供稳定、安全的Cursor Pro官方会员获取指南，告别折腾，专注编程。" property="og:description"/>
+  <meta content="https://cursor-vip.pro/blog/cursor-unlimited" property="og:url"/>
+  <meta content="Cursor-VIP.pro" property="og:site_name"/>
+  <meta content="https://cursor-vip.pro/assets/og.png" property="og:image"/>
+  <meta content="website" property="og:type"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro" name="twitter:title"/>
+  <meta content="深度解析Cursor无限续杯的原理与方法（邮箱注册法、机器码重置脚本），揭示其潜在风险与模型限制。为您提供稳定、安全的Cursor Pro官方会员获取指南，告别折腾，专注编程。" name="twitter:description"/>
+  <meta content="https://cursor-vip.pro/assets/og.png" name="twitter:image"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   /* 复用 Gemini 站的核心样式 */
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; background-color: #020617; color: #e2e8f0; }
+    .font-code { font-family: 'JetBrains Mono', monospace; }
+
+    /* 背景风格 */
+    .cursor-bg {
+      background-color: #000000;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.15), transparent 25%);
+    }
+
+    .glass-card { background: rgba(255,255,255,0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .glass-card:hover { border-color: rgba(59,130,246,0.4); box-shadow: 0 10px 40px -10px rgba(59,130,246,0.25); }
+
+    .article-content h2 { margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.875rem; line-height: 2.25rem; font-weight: 800; color: #fff; }
+    .article-content h3 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; line-height: 2rem; font-weight: 700; color: #e2e8f0; }
+    .article-content p { margin-bottom: 1.5rem; line-height: 1.8; color: #cbd5e1; }
+    .article-content ul { margin-bottom: 1.5rem; list-style-type: disc; padding-left: 1.5rem; color: #cbd5e1; }
+    .article-content li { margin-bottom: 0.5rem; }
+    .article-content strong { color: #fff; font-weight: 600; }
+  </style>
+  <script type="application/ld+json">
+   {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro",
+  "description": "深度解析Cursor无限续杯的原理与方法（邮箱注册法、机器码重置脚本），揭示其潜在风险与模型限制。为您提供稳定、安全的Cursor Pro官方会员获取指南，告别折腾，专注编程。",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://cursor-vip.pro/blog/cursor-unlimited"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Cursor-VIP Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cursor-VIP",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cursor-vip.pro/logo.svg"
+    }
+  },
+  "datePublished": "2026-01-29"
+}
+  </script>
+  <script type="application/ld+json">
+   {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首页",
+      "item": "https://cursor-vip.pro"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "博客",
+      "item": "https://cursor-vip.pro/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro",
+      "item": "https://cursor-vip.pro/blog/cursor-unlimited"
+    }
+  ]
+}
+  </script>
+ </head>
+ <body class="cursor-bg min-h-screen text-slate-200 selection:bg-blue-500 selection:text-white">
+  <nav class="fixed top-0 sm:top-6 left-0 right-0 z-50 px-2 sm:px-6 transition-all duration-300">
+   <div class="max-w-7xl mx-auto rounded-2xl border border-white/10 bg-[#000000]/80 backdrop-blur-2xl shadow-lg">
+    <div class="px-6 h-16 sm:h-20 flex items-center justify-between">
+     <a aria-label="首页" class="flex items-center gap-3 group" href="/">
+      <div class="relative w-8 h-8 flex items-center justify-center">
+       <div class="absolute inset-0 bg-blue-500/30 blur-lg rounded-full group-hover:bg-blue-500/50 transition">
+       </div>
+       <i class="fa-solid fa-terminal text-white relative z-10 text-lg">
+       </i>
+      </div>
+      <div class="flex flex-col leading-none">
+       <span class="font-black text-xl tracking-tighter text-white group-hover:tracking-normal transition-all duration-500">
+        CURSOR-VIP
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-light ml-0.5">
+         .PRO
+        </span>
+       </span>
+      </div>
+     </a>
+     <div class="hidden md:flex items-center gap-10 bg-white/5 px-8 py-2.5 rounded-full border border-white/5">
+      <a class="text-sm font-medium text-slate-400 hover:text-white transition relative group" href="/#pricing">
+       价格方案
+      </a>
+      <a class="text-sm font-medium text-slate-400 hover:text-white transition relative group" href="/#features">
+       核心优势
+      </a>
+      <a class="text-sm font-medium text-slate-400 hover:text-white transition relative group" href="/#faq">
+       常见问题
+      </a>
+     </div>
+     <div class="flex items-center gap-5">
+      <a class="relative group" href="/#pricing">
+       <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full opacity-70 blur group-hover:opacity-100 transition duration-200">
+       </div>
+       <div class="relative px-6 py-2.5 bg-slate-900 rounded-full flex items-center gap-2 border border-white/10 group-hover:bg-slate-800 transition">
+        <span class="font-bold text-sm text-white">
+         立即开通
+        </span>
+        <i class="fa-solid fa-bolt text-yellow-400 text-xs animate-pulse">
+        </i>
+       </div>
+      </a>
+     </div>
+    </div>
+   </div>
+  </nav>
+  <!-- Nav -->
+  <main class="pt-32 pb-20 lg:pt-48">
+   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 mb-8 pt-6">
+    <ol class="flex items-center space-x-2 text-sm text-slate-400">
+     <li>
+      <a class="hover:text-white transition" href="/">
+       首页
+      </a>
+     </li>
+     <li>
+      <i class="fa-solid fa-chevron-right text-xs opacity-50">
+      </i>
+     </li>
+     <li>
+      <a class="hover:text-white transition" href="/blog/">
+       博客
+      </a>
+     </li>
+     <li>
+      <i class="fa-solid fa-chevron-right text-xs opacity-50">
+      </i>
+     </li>
+     <li aria-current="page" class="text-slate-200 font-medium truncate">
+      Cursor无限续杯教程与原理解析：风险与替代方案 - Cursor-VIP.pro
+     </li>
+    </ol>
+   </nav>
+   <!-- Hero Section -->
+   <header class="max-w-4xl mx-auto px-6 text-center mb-16 relative">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/20 blur-[100px] rounded-full -z-10">
+    </div>
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-mono mb-6">
+     <i class="fa-solid fa-unlock-keyhole">
+     </i>
+     技术揭秘
+    </div>
+    <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
+     Cursor
+     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+      无限续杯
+     </span>
+     ：
+     <br/>
+     原理、方法与潜在风险全解析
+    </h1>
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+     揭秘市面上流行的“无限续杯”技术背后的原理。虽然看似免费，但背后隐藏着不为人知的技术维护成本与封号风险。
+    </p>
+   </header>
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+     <!-- Main Content Column -->
+     <article class="lg:col-span-8 article-content">
+      <!-- Intro Card -->
+      <div class="glass-card p-8 rounded-2xl mb-12">
+       <h2 class="!mt-0 text-2xl mb-4">
+        什么是“Cursor 无限续杯”？
+       </h2>
+       <p class="text-lg leading-relaxed">
+        简单来说，“Cursor 无限续杯”指的是通过一些技术手段，绕过官方的 14 天免费试用期或请求额度限制，实现长期免费或低成本使用
+        <a class="text-blue-400 hover:underline" href="/">
+         Cursor Pro
+        </a>
+        会员功能的方法。
+       </p>
+       <p>
+        这就好比买了一杯奶茶，喝完后通过某种方式“免费续杯”，虽然省了钱，但往往伴随着复杂的折腾和不稳定性。Cursor 作为一款强大的 AI 代码编辑器，其核心的高级功能（如
+        <span class="font-code text-purple-400">
+         Claude 3.5 Opus
+        </span>
+        、
+        <span class="font-code text-blue-400">
+         Copilot++
+        </span>
+        ）通常需要付费订阅才能稳定使用。
+       </p>
+      </div>
+      <!-- Methods Section using Grid -->
+      <h2 class="mb-8 flex items-center gap-3">
+       <i class="fa-solid fa-layer-group text-blue-500">
+       </i>
+       两大主流“续杯”流派
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+       <!-- Method 1 -->
+       <div class="bg-[#0B0F19] border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition group">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-2xl mb-4 group-hover:scale-110 transition">
+         <i class="fa-solid fa-envelope">
+         </i>
+        </div>
+        <h3 class="!mt-0 !text-xl text-white">
+         邮箱注册法
+        </h3>
+        <div class="text-xs font-mono text-slate-500 mb-4">
+         THE EMAIL TRICK
+        </div>
+        <p class="text-sm text-slate-400 mb-4">
+         <strong>
+          原理：
+         </strong>
+         利用“无限邮箱”技术，在 14 天试用期结束后，生成新的子邮箱重新注册账号，循环白嫖试用期。
+        </p>
+        <ul class="text-sm text-slate-400 space-y-2 !pl-0 !list-none">
+         <li class="flex gap-2">
+          <i class="fa-solid fa-wrench text-slate-500 mt-1">
+          </i>
+          <span>
+           需要配置域名邮箱转发 (Cloudflare 等)
+          </span>
+         </li>
+         <li class="flex gap-2">
+          <i class="fa-solid fa-check text-green-500 mt-1">
+          </i>
+          <span>
+           成本极低，仅需域名费
+          </span>
+         </li>
+         <li class="flex gap-2">
+          <i class="fa-solid fa-xmark text-red-500 mt-1">
+          </i>
+          <span>
+           操作繁琐，需频繁切换账号，数据不互通
+          </span>
+         </li>
+        </ul>
+       </div>
+       <!-- Method 2 -->
+       <div class="bg-[#0B0F19] border border-white/10 rounded-2xl p-6 hover:border-purple-500/30 transition group">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-2xl mb-4 group-hover:scale-110 transition">
+         <i class="fa-solid fa-laptop-code">
+         </i>
+        </div>
+        <h3 class="!mt-0 !text-xl text-white">
+         机器码重置法
+        </h3>
+        <div class="text-xs font-mono text-slate-500 mb-4">
+         DEVICE ID RESET
+        </div>
+        <p class="text-sm text-slate-400 mb-4">
+         <strong>
+          原理：
+         </strong>
+         Cursor 会锁定设备机器码。通过脚本修改或重置电脑的机器码，伪装成一台“新电脑”，从而欺骗服务器再次发放试用资格。
+        </p>
+        <ul class="text-sm text-slate-400 space-y-2 !pl-0 !list-none">
+         <li class="flex gap-2">
+          <i class="fa-solid fa-wrench text-slate-500 mt-1">
+          </i>
+          <span>
+           需要运行第三方脚本/工具
+          </span>
+         </li>
+         <li class="flex gap-2">
+          <i class="fa-solid fa-check text-green-500 mt-1">
+          </i>
+          <span>
+           无需频繁注册新邮箱
+          </span>
+         </li>
+         <li class="flex gap-2">
+          <i class="fa-solid fa-xmark text-red-500 mt-1">
+          </i>
+          <span>
+           脚本易失效，可能含有恶意代码，风险高
+          </span>
+         </li>
+        </ul>
+       </div>
+      </div>
+      <!-- Risks Section -->
+      <div class="relative bg-red-900/10 border border-red-500/20 rounded-2xl p-8 mb-12 overflow-hidden">
+       <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 blur-[50px] rounded-full pointer-events-none">
+       </div>
+       <h2 class="!mt-0 text-red-200 flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation">
+        </i>
+        你必须知道的“坑”与风险
+       </h2>
+       <p class="text-red-100/70">
+        虽然“无限续杯”听起来很诱人，但天下没有免费的午餐。官方的风控策略在不断升级，使用这些方法面临着诸多隐患：
+       </p>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="flex gap-4">
+         <div class="w-8 h-8 rounded bg-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+          1
+         </div>
+         <div>
+          <h4 class="text-white font-bold mb-1">
+           模型阉割
+          </h4>
+          <p class="text-sm text-slate-400">
+           很多续杯工具只能让你使用基础模型 (Auto)，无法调用最强的
+           <a class="text-blue-400 hover:underline" href="/#features">
+            Claude 3.7
+           </a>
+           或 GPT-4.1，生产力大打折扣。
+          </p>
+         </div>
+        </div>
+        <div class="flex gap-4">
+         <div class="w-8 h-8 rounded bg-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+          2
+         </div>
+         <div>
+          <h4 class="text-white font-bold mb-1">
+           封号风险
+          </h4>
+          <p class="text-sm text-slate-400">
+           官方会检测异常的机器码重置行为。一旦被标记，可能导致设备被永久拉黑，甚至关联的 GitHub 账号受牵连。
+          </p>
+         </div>
+        </div>
+        <div class="flex gap-4">
+         <div class="w-8 h-8 rounded bg-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+          3
+         </div>
+         <div>
+          <h4 class="text-white font-bold mb-1">
+           工具安全性
+          </h4>
+          <p class="text-sm text-slate-400">
+           网上流传的“重置脚本”来源不明，运行这些脚本需要管理员权限，存在极大的安全隐患（如植入木马）。
+          </p>
+         </div>
+        </div>
+        <div class="flex gap-4">
+         <div class="w-8 h-8 rounded bg-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+          4
+         </div>
+         <div>
+          <h4 class="text-white font-bold mb-1">
+           售后无门
+          </h4>
+          <p class="text-sm text-slate-400">
+           所有“黑科技”都属于钻空子，随时可能失效。一旦失效，你无法获得任何支持，只能重新折腾。
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Conclusion -->
+      <div class="border-l-4 border-blue-500 pl-6 py-2">
+       <h3 class="!mt-0 text-white">
+        总结与建议
+       </h3>
+       <p class="!mb-0">
+        “无限续杯”虽然能帮你省钱，但背后是持续的技术维护成本和不确定性。如果你只是想短暂体验 Cursor，可以尝试；但如果你是依靠代码吃饭的专业开发者，
+        <strong>
+         时间和稳定性远比这几十块钱更重要
+        </strong>
+        。
+        <br/>
+        <br/>
+        与其每天担心脚本失效、账号被封，不如选择更省心的
+        <a class="text-blue-400 hover:underline font-bold" href="/#pricing">
+         正规订阅方案
+        </a>
+        ，把精力集中在真正有价值的创造上。
+       </p>
+      </div>
+      <div class="mt-12 pt-8 border-t border-slate-800" id="recommended-reading">
+       <h3 class="text-xl font-bold text-white mb-4">
+        推荐阅读
+       </h3>
+       <ul class="space-y-2 text-slate-400">
+        <li>
+         <a class="hover:text-blue-400" href="/">
+          返回首页
+         </a>
+        </li>
+        <!-- Dynamic links could be added here -->
+       </ul>
+      </div>
+     </article>
+     <!-- Sidebar (Sticky) -->
+     <aside class="lg:col-span-4 space-y-8">
+      <div class="sticky top-28">
+       <!-- Sales Card -->
+       <div class="relative group">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl opacity-75 blur transition duration-1000 group-hover:opacity-100 animate-gradient-xy">
+        </div>
+        <div class="relative bg-[#0B0F19] rounded-[1.4rem] p-6 shadow-2xl overflow-hidden">
+         <div class="absolute top-0 right-0">
+          <div class="bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl">
+           OFFICIAL PRO
+          </div>
+         </div>
+         <div class="text-center mb-6 mt-2">
+          <div class="w-16 h-16 mx-auto bg-blue-500/20 rounded-2xl flex items-center justify-center text-blue-400 mb-4 border border-blue-500/30">
+           <i class="fa-solid fa-gem text-3xl">
+           </i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">
+           拒绝折腾，稳定为王
+          </h3>
+          <p class="text-xs text-slate-400">
+           Cursor Pro 独享成品号 / 代充
+          </p>
+         </div>
+         <div class="bg-white/5 rounded-xl p-4 mb-6 border border-white/5">
+          <div class="flex justify-between items-end mb-2">
+           <span class="text-slate-400 text-sm">
+            特惠价
+           </span>
+           <span class="text-2xl font-black text-white">
+            ¥205
+           </span>
+          </div>
+          <div class="text-xs text-slate-500 line-through">
+           原价 $20/月 (约 ¥145/月)
+          </div>
+          <div class="mt-2 text-[10px] text-green-400 bg-green-900/20 px-2 py-1 rounded inline-block">
+           <i class="fa-solid fa-ticket mr-1">
+           </i>
+           码 xmpick 再减 6%
+          </div>
+         </div>
+         <ul class="space-y-3 mb-6">
+          <li class="flex items-center gap-2 text-sm text-slate-300">
+           <i class="fa-solid fa-check text-blue-500">
+           </i>
+           稳定独享账号，绝不封号
+          </li>
+          <li class="flex items-center gap-2 text-sm text-slate-300">
+           <i class="fa-solid fa-check text-blue-500">
+           </i>
+           解锁完整版 Opus 4.5
+          </li>
+          <li class="flex items-center gap-2 text-sm text-slate-300">
+           <i class="fa-solid fa-check text-blue-500">
+           </i>
+           支持代充，保留历史数据
+          </li>
+         </ul>
+         <a class="block w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-center hover:scale-[1.02] transition shadow-lg shadow-blue-900/30" href="/#pricing">
+          立即获取 Pro 会员
+          <i class="fa-solid fa-arrow-right ml-2">
+          </i>
+         </a>
+         <p class="text-[10px] text-slate-500 text-center mt-3">
+          自动发货 · 售后无忧
+         </p>
+        </div>
+       </div>
+       <!-- Quick Links -->
+       <div class="mt-8 bg-[#0B0F19] border border-white/10 rounded-2xl p-6">
+        <h4 class="text-white font-bold mb-4">
+         热门资源
+        </h4>
+        <ul class="space-y-3 text-sm">
+         <li>
+          <a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/#features">
+           <span>
+            Cursor 核心功能介绍
+           </span>
+           <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+           </i>
+          </a>
+         </li>
+         <li>
+          <a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/#faq">
+           <span>
+            常见问题解答 (FAQ)
+           </span>
+           <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+           </i>
+          </a>
+         </li>
+        </ul>
+       </div>
+      </div>
+     </aside>
+    </div>
+   </div>
+  </main>
+  <footer class="relative z-10 bg-[#050505] border-t border-white/10 pt-16 pb-8 overflow-hidden font-sans">
+   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent">
+   </div>
+   <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-900/10 blur-[100px] pointer-events-none">
+   </div>
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
+     <div class="col-span-2 md:col-span-1">
+      <a class="flex items-center gap-3 group mb-4" href="/">
+       <div class="relative w-8 h-8 flex items-center justify-center">
+        <div class="absolute inset-0 bg-blue-500/30 blur-lg rounded-full group-hover:bg-blue-500/50 transition">
+        </div>
+        <i class="fa-solid fa-terminal text-white relative z-10 text-lg">
+        </i>
+       </div>
+       <div class="flex flex-col leading-none">
+        <span class="font-black text-xl tracking-tighter text-white group-hover:tracking-normal transition-all duration-500">
+         CURSOR-VIP
+         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-light ml-0.5">
+          .PRO
+         </span>
+        </span>
+       </div>
+      </a>
+      <p class="text-slate-500 text-sm leading-relaxed mb-6">
+       Empowering Developers with AI.
+       <br/>
+       让每一行代码都充满智慧。专为中国开发者打造的 Cursor 加速服务。
+      </p>
+      <div class="flex gap-4">
+       <a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition" href="#">
+        <i class="fa-brands fa-github">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-400/10 hover:text-blue-400 transition" href="#">
+        <i class="fa-brands fa-twitter">
+        </i>
+       </a>
+       <a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:bg-green-400/10 hover:text-green-400 transition" href="mailto:support@cursor-vip.pro">
+        <i class="fa-solid fa-envelope">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div>
+      <h4 class="text-white font-bold mb-6">
+       产品服务
+      </h4>
+      <ul class="space-y-4 text-sm text-slate-500">
+       <li>
+        <a class="hover:text-blue-400 transition" href="/#pricing">
+         Cursor Pro 成品号
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="/#pricing">
+         会员代充 Upgrade
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="/#features">
+         核心功能 Features
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="#">
+         企业采购 (即将上线)
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-white font-bold mb-6">
+       关于与法律
+      </h4>
+      <ul class="space-y-4 text-sm text-slate-500">
+       <li>
+        <a class="hover:text-blue-400 transition" href="/about">
+         关于我们 About Us
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="/privacy">
+         隐私政策 Privacy Policy
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="/terms">
+         服务条款 Terms of Service
+        </a>
+       </li>
+       <li>
+        <a class="hover:text-blue-400 transition" href="/refund">
+         退款政策 Refund Policy
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-white font-bold mb-6">
+       安全支付
+      </h4>
+      <div class="flex flex-wrap gap-2 mb-6">
+       <div class="px-3 py-1 rounded bg-blue-900/20 border border-blue-500/20 text-blue-400 text-xs">
+        <i class="fa-brands fa-alipay">
+        </i>
+        Alipay
+       </div>
+       <div class="px-3 py-1 rounded bg-green-900/20 border border-green-500/20 text-green-400 text-xs">
+        <i class="fa-brands fa-weixin">
+        </i>
+        WeChat
+       </div>
+      </div>
+      <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+       <div class="text-xs text-slate-400 mb-1">
+        Current Version
+       </div>
+       <div class="text-sm font-mono text-white">
+        v0.45.0 (Latest)
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="h-px bg-white/5 mb-8">
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+     <div>
+      © 2026 Cursor-VIP.pro. All rights reserved.
+     </div>
+     <div class="max-w-2xl text-center md:text-right font-mono opacity-80">
+      <strong>
+       Disclaimer:
+      </strong>
+      This website is an independent third-party service provider. 
+            We are not affiliated with, endorsed by, or associated with Anysphere Inc. (Cursor). 
+            "Cursor" is a registered trademark of Anysphere Inc.
+     </div>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
