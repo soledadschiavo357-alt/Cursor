@@ -68,6 +68,13 @@ class SEOAuditor:
         self.external_links = set()
         self.score = 100
         self.issues = []
+        
+        # Statistics
+        self.total_links_scanned = 0
+        self.internal_links_count = 0
+        self.external_links_count = 0
+        self.clean_url_issues_count = 0
+        self.page_outbound_counts = {} # source -> count
 
     def scan_files(self):
         print(f"{Fore.CYAN}[INFO] Scanning files...{Style.RESET_ALL}")
@@ -82,6 +89,7 @@ class SEOAuditor:
 
     def audit_file(self, filepath):
         rel_path = os.path.relpath(filepath, ROOT_DIR)
+        self.page_outbound_counts[rel_path] = 0
         
         try:
             with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
@@ -96,21 +104,36 @@ class SEOAuditor:
                 href = a['href'].strip()
                 if not href or self.config.should_ignore_url(href):
                     continue
+                
+                self.total_links_scanned += 1
 
                 if href.startswith(('http://', 'https://')):
                     # Check if it's actually internal (based on base_url)
                     if self.config.base_url and href.startswith(self.config.base_url):
+                        self.internal_links_count += 1
+                        self.page_outbound_counts[rel_path] += 1
                         path = href[len(self.config.base_url):]
                         self._analyze_internal_link(path, rel_path, soup)
                         self._add_issue('WARN', f"Internal link uses absolute URL: {href}", rel_path, -2)
                     else:
+                        self.external_links_count += 1
                         self.external_links.add(href)
-                        # Check noopener/nofollow
+                        # Check rel attributes for external links to prevent SEO weight loss
                         rel = a.get('rel', [])
-                        if 'noopener' not in rel:
-                             # Just a minor check, maybe not worth penalizing heavily unless strictly required
-                             pass
+                        required_rels = ['nofollow', 'noopener', 'noreferrer']
+                        missing_rels = [r for r in required_rels if r not in rel]
+                        
+                        if missing_rels:
+                            self._add_issue('WARN', f"External link missing rel attributes ({', '.join(missing_rels)}): {href}", rel_path, -1)
                 else:
+                    self.internal_links_count += 1
+                    self.page_outbound_counts[rel_path] += 1
+                    # Internal Link Analysis
+                    # Check if internal link accidentally has nofollow (blocking link juice)
+                    rel = a.get('rel', [])
+                    if 'nofollow' in rel:
+                        self._add_issue('WARN', f"Internal link has 'nofollow' attribute (blocks link juice): {href}", rel_path, -2)
+
                     self._analyze_internal_link(href, rel_path, soup)
 
         except Exception as e:
@@ -130,9 +153,12 @@ class SEOAuditor:
             self._add_issue('WARN', "Missing Schema (application/ld+json)", rel_path, -2)
 
     def _analyze_internal_link(self, href, source_path, soup):
+        clean_url_error = False
+        
         # Clean URL Check
         if href.endswith('.html') or href.endswith('.htm'):
              self._add_issue('WARN', f"Link contains .html extension: {href}", source_path, -2)
+             clean_url_error = True
         
         # Relative vs Absolute Check
         if not href.startswith('/'):
@@ -141,6 +167,7 @@ class SEOAuditor:
                  pass
              else:
                  self._add_issue('WARN', f"Link uses relative path: {href}", source_path, -2)
+                 clean_url_error = True
              # Resolve to absolute for checking existence
              # This is tricky without a proper web server context, but we can approximate
              # For now, let's assume root-relative is the standard and required
@@ -149,8 +176,29 @@ class SEOAuditor:
         # 1. Check for /index
         if href.endswith('/index') or href == 'index':
             self._add_issue('WARN', f"Link ends with 'index' (should be directory root): {href}", source_path, -2)
+            clean_url_error = True
 
         # 2. Trailing Slash Consistency - Moved to after existence check for accuracy
+
+
+        # New Clean URL Checks
+        # 3. Uppercase check
+        if any(c.isupper() for c in href.split('?')[0].split('#')[0]):
+            self._add_issue('WARN', f"Link contains uppercase characters (should be lowercase): {href}", source_path, -1)
+            clean_url_error = True
+
+        # 4. Underscore check
+        if '_' in href.split('?')[0].split('#')[0]:
+            self._add_issue('WARN', f"Link contains underscores (should use hyphens): {href}", source_path, -1)
+            clean_url_error = True
+
+        # 5. Double slashes check
+        if '//' in href:
+            self._add_issue('WARN', f"Link contains double slashes: {href}", source_path, -1)
+            clean_url_error = True
+            
+        if clean_url_error:
+            self.clean_url_issues_count += 1
 
 
         # Dead Link Check (Local Mapping)
@@ -258,8 +306,43 @@ class SEOAuditor:
         
         print(f"Base URL: {self.config.base_url}")
         print(f"Files Scanned: {len(self.files)}")
-        print(f"External Links: {len(self.external_links)}")
+        print(f"External Links: {len(self.external_links)} (Unique Domains/Pages)")
         
+        print("\n" + "-"*50)
+        print(f"{Fore.WHITE}{Style.BRIGHT}DETAILED STATISTICS{Style.RESET_ALL}")
+        print("-"*50)
+        print(f"Total Links Scanned:   {self.total_links_scanned}")
+        print(f"Internal Links Found:  {self.internal_links_count}")
+        print(f"External Links Found:  {self.external_links_count}")
+        
+        # Clean URL Compliance
+        clean_compliance = 100
+        if self.internal_links_count > 0:
+            clean_compliance = ((self.internal_links_count - self.clean_url_issues_count) / self.internal_links_count) * 100
+        
+        color_compliance = Fore.GREEN if clean_compliance == 100 else (Fore.YELLOW if clean_compliance > 80 else Fore.RED)
+        print(f"Clean URL Compliance:  {color_compliance}{clean_compliance:.1f}%{Style.RESET_ALL} ({self.clean_url_issues_count} issues found)")
+
+        # Link Distribution
+        avg_links = self.total_links_scanned / len(self.files) if len(self.files) > 0 else 0
+        print(f"Avg Links per Page:    {avg_links:.1f}")
+
+        print("\n" + "-"*50)
+        print(f"{Fore.WHITE}{Style.BRIGHT}PAGE AUTHORITY & LINK FLOW{Style.RESET_ALL}")
+        print("-"*50)
+        
+        # 1. Top Pages by Inbound Links (Authority)
+        print(f"{Fore.CYAN}Top 5 Pages by Inbound Links (Internal Authority):{Style.RESET_ALL}")
+        sorted_inbound = sorted(self.internal_links.items(), key=lambda item: len(item[1]), reverse=True)[:5]
+        for rank, (page, sources) in enumerate(sorted_inbound):
+            print(f"  {rank+1}. {page:<40} {len(sources)} links")
+
+        # 2. Top Pages by Outbound Links (Hubs)
+        print(f"\n{Fore.CYAN}Top 5 Pages by Outbound Internal Links (Hubs):{Style.RESET_ALL}")
+        sorted_outbound = sorted(self.page_outbound_counts.items(), key=lambda item: item[1], reverse=True)[:5]
+        for rank, (page, count) in enumerate(sorted_outbound):
+            print(f"  {rank+1}. {page:<40} {count} links")
+
         print("\nTop Issues:")
         # Sort issues by severity (ERROR first)
         sorted_issues = sorted(self.issues, key=lambda x: 0 if x['level'] == 'ERROR' else 1)

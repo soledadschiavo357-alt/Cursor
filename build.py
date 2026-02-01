@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 import sys
 import datetime
 import json
+import re
+import hashlib
 
 # Configuration
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -61,8 +63,21 @@ class SmartExtractor:
         for a in element.find_all('a', href=True):
             href = a['href']
             
-            # Skip external/special links
+            # Skip external/special links (but add protection first)
             if href.startswith(('http', '//', 'mailto:', 'tel:', 'javascript:', 'data:')):
+                if href.startswith(('http://', 'https://', '//')):
+                    # Check if it's strictly external (not current domain)
+                    # We treat links not containing 'cursor-vip.pro' as external
+                    if 'cursor-vip.pro' not in href:
+                        rel = a.get('rel', [])
+                        # bs4 usually returns list for rel, but let's be safe
+                        if isinstance(rel, str): rel = [rel]
+                        
+                        updates = ['nofollow', 'noopener', 'noreferrer']
+                        for u in updates:
+                            if u not in rel:
+                                rel.append(u)
+                        a['rel'] = rel
                 continue
 
             # Handle Anchors
@@ -361,8 +376,20 @@ class SchemaGenerator:
         }]
 
 class ContentInjector:
+    ICONS = [
+        "fa-code", "fa-terminal", "fa-laptop-code", "fa-microchip", 
+        "fa-network-wired", "fa-database", "fa-server", "fa-cloud",
+        "fa-layer-group", "fa-cubes", "fa-robot", "fa-brain",
+        "fa-keyboard", "fa-sitemap", "fa-bug", "fa-file-code"
+    ]
+
     def __init__(self, soup):
         self.soup = soup
+
+    def _get_icon(self, title):
+        # Generate consistent icon based on title hash
+        hash_val = int(hashlib.md5(title.encode('utf-8')).hexdigest(), 16)
+        return self.ICONS[hash_val % len(self.ICONS)]
 
     def inject_nav(self, nav_html):
         if not nav_html: return
@@ -396,6 +423,18 @@ class ContentInjector:
     def inject_breadcrumbs(self, title, is_blog_index=False):
         main = self.soup.find('main')
         if not main: return
+        
+        # Adjust main padding to reduce gap between header and breadcrumbs
+        # Default header is fixed h-16 (mobile) / h-20 (desktop)
+        # Previous padding was pt-32 (128px) / lg:pt-48 (192px), which is too large
+        # We change it to pt-24 (96px) / lg:pt-32 (128px)
+        if main.has_attr('class'):
+            classes = main['class']
+            # Filter out existing large padding
+            new_classes = [c for c in classes if not c.startswith('pt-') and not c.startswith('lg:pt-')]
+            # Add new padding
+            new_classes.extend(['pt-24', 'lg:pt-32'])
+            main['class'] = new_classes
         
         # Remove existing breadcrumbs if any (to avoid duplicates on rebuild)
         existing_bc = main.find('nav', attrs={"aria-label": "Breadcrumb"})
@@ -466,23 +505,16 @@ class ContentInjector:
         if rec:
             rec.decompose() # Clean existing
             
-        # Also check for any div that looks like a manual recommended section (e.g. contains "推荐阅读" h3)
-        # This handles the manual one in cursor-chinese-settings.html
+        # Also check for any div that looks like a manual recommended section
         for h3 in article.find_all('h3'):
             if "推荐阅读" in h3.get_text():
-                # Find the parent container (likely a div) and remove it
-                # We need to be careful not to remove the main article content if structure is different
                 parent = h3.parent
                 if parent.name == 'div' and ('bg-slate-900/50' in str(parent.get('class', [])) or 'border-t' in str(parent.get('class', []))):
                      parent.decompose()
                 elif parent.name == 'div':
-                     # Try one more level up if it's just a wrapper
                      parent.decompose()
 
         # Filter posts
-        # 1. Must be blog type
-        # 2. Must not be current page
-        # 3. Must not be index
         recommendations = [p for p in posts if p['type'] == 'blog' and p['url'] != current_url and not p['url'].endswith('/index') and 'index.html' not in p['url']]
         
         # Sort by date (newest first)
@@ -523,10 +555,8 @@ class ContentInjector:
              date = post.get('date', '')
              tag = post.get('tag', 'Tech')
              
-             # Icon mapping
-             icon = "fa-code"
-             if "额度" in title: icon = "fa-chart-pie"
-             elif "无限" in title: icon = "fa-infinity"
+             # Icon mapping using hash
+             icon = self._get_icon(title)
              
              # Truncate description more aggressively for small cards
              if len(desc) > 40: desc = desc[:40] + '...'
@@ -592,10 +622,8 @@ class ContentInjector:
              date = post.get('date', '')
              tag = post.get('tag', 'Tech')
              
-             # Icon mapping
-             icon = "fa-code"
-             if "额度" in title: icon = "fa-chart-pie"
-             elif "无限" in title: icon = "fa-infinity" # or fa-unlock-keyhole
+             # Icon mapping using hash
+             icon = self._get_icon(title)
              
              # Simple truncate description
              if len(desc) > 60: desc = desc[:60] + '...'
@@ -800,6 +828,9 @@ def main():
         # User requested to remove "- Cursor-VIP.pro"
         if " - Cursor-VIP.pro" in title:
             title = title.replace(" - Cursor-VIP.pro", "")
+
+        # Clean Title: Remove leading numbers (e.g. "1. xxx" -> "xxx")
+        title = re.sub(r'^\d+\.?\s*', '', title)
             
         # Try to find description meta, or use first p tag
         desc_tag = soup.find('meta', attrs={"name": "description"})
