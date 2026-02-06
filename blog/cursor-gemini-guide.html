@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
 <html class="scroll-smooth" lang="zh-CN">
-<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解</title><meta content="Cursor VIP Service." name="description"/><meta content="cursor, ai, code editor" name="keywords"/><link href="https://cursor-vip.pro/blog/cursor-bugbot" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="zh-cn" http-equiv="content-language"/><meta content="Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解" property="og:title"/><meta content="Cursor VIP Service." property="og:description"/><meta content="https://cursor-vip.pro/blog/cursor-bugbot" property="og:url"/><meta content="Cursor-VIP.pro" property="og:site_name"/><meta content="https://cursor-vip.pro/assets/og.png" property="og:image"/><meta content="website" property="og:type"/><meta content="Cursor-VIP Team" name="author"/><meta content="2026-01-24" property="article:published_time"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解" name="twitter:title"/><meta content="Cursor VIP Service." name="twitter:description"/><meta content="https://cursor-vip.pro/assets/og.png" name="twitter:image"/><link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com">
-</script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型</title><meta content="详解如何在 Cursor 中接入 Gemini 模型，享受 100万 Token 超长上下文与每日 1000 次免费调用。全方位对比 Claude 4.5，Gemini 在 AI 编程中有哪些优缺点？" name="description"/><meta content="cursor, ai, code editor" name="keywords"/><link href="https://cursor-vip.pro/blog/cursor-gemini-guide" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="zh-cn" http-equiv="content-language"/><meta content="Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型" property="og:title"/><meta content="详解如何在 Cursor 中接入 Gemini 模型，享受 100万 Token 超长上下文与每日 1000 次免费调用。全方位对比 Claude 4.5，Gemini 在 AI 编程中有哪些优缺点？" property="og:description"/><meta content="https://cursor-vip.pro/blog/cursor-gemini-guide" property="og:url"/><meta content="Cursor-VIP.pro" property="og:site_name"/><meta content="https://cursor-vip.pro/assets/og.png" property="og:image"/><meta content="website" property="og:type"/><meta content="Cursor-VIP Team" name="author"/><meta content="2026-02-06" property="article:published_time"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型" name="twitter:title"/><meta content="详解如何在 Cursor 中接入 Gemini 模型，享受 100万 Token 超长上下文与每日 1000 次免费调用。全方位对比 Claude 4.5，Gemini 在 AI 编程中有哪些优缺点？" name="twitter:description"/><meta content="https://cursor-vip.pro/assets/og.png" name="twitter:image"/><link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
    /* 复用 Gemini 站的核心样式 */
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; background-color: #020617; color: #e2e8f0; }
@@ -28,11 +27,11 @@
   </style><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解",
-  "description": "Cursor VIP Service.",
+  "headline": "Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型",
+  "description": "详解如何在 Cursor 中接入 Gemini 模型，享受 100万 Token 超长上下文与每日 1000 次免费调用。全方位对比 Claude 4.5，Gemini 在 AI 编程中有哪些优缺点？",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cursor-vip.pro/blog/cursor-bugbot"
+    "@id": "https://cursor-vip.pro/blog/cursor-gemini-guide"
   },
   "author": {
     "@type": "Organization",
@@ -46,7 +45,7 @@
       "url": "https://cursor-vip.pro/logo.svg"
     }
   },
-  "datePublished": "2026-01-24"
+  "datePublished": "2026-02-06"
 }</script><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -66,8 +65,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解",
-      "item": "https://cursor-vip.pro/blog/cursor-bugbot"
+      "name": "Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型",
+      "item": "https://cursor-vip.pro/blog/cursor-gemini-guide"
     }
   ]
 }</script></head>
@@ -121,6 +120,7 @@
 </div>
 </nav>
 <!-- Nav will be injected by build.py -->
+
 <main class="pb-20 pt-24 lg:pt-32">
 <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-6 mb-8">
 <ol class="flex items-center space-x-2 text-sm text-slate-400">
@@ -128,10 +128,9 @@
 <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
 <li><a class="hover:text-white transition" href="/blog/">博客</a></li>
 <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
-<li aria-current="page" class="text-slate-200 font-medium truncate">Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解</li>
+<li aria-current="page" class="text-slate-200 font-medium truncate">Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型</li>
 </ol>
 </nav>
-
 
 <!-- Breadcrumbs will be injected by build.py -->
 <!-- Hero Section -->
@@ -139,20 +138,21 @@
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/20 blur-[100px] rounded-full -z-10">
 </div>
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-mono mb-6">
-<i class="fa-solid fa-bug-slash">
+<i class="fa-solid fa-microchip">
 </i>
-     功能解析
+     技术深度
     </div>
 <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-     Cursor BugBot
+     Cursor 接入
      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-      功能详解
+      Gemini
      </span>
+     深度评测
 <br/>
-     你的 24 小时 AI 代码质检员
+     如何免费解锁谷歌最强 AI 模型
     </h1>
 <p class="text-lg text-slate-400 max-w-2xl mx-auto">
-     Cursor BugBot 是一个自动化代码审查助手，专为 GitHub PR 设计。它不仅能发现潜在 Bug，还能直接提供修复代码，让 Code Review 效率翻倍。
+     Cursor 的强大不仅在于内置的 Claude，更在于其开放的生态。本文将带你实战接入 Google Gemini 模型，体验 100万 Token 上下文带来的“上帝视角”，并对比它与 Claude 3.5/4.5 的优劣。
     </p>
 <!-- Meta will be injected by build.py -->
 
@@ -160,7 +160,7 @@
 <div class="flex items-center justify-center gap-6 text-sm text-slate-400 mt-4 font-mono" id="article-meta">
 <div class="flex items-center gap-2">
 <i class="fa-regular fa-calendar text-blue-400"></i>
-<time datetime="2026-01-24">2026-01-24</time>
+<time datetime="2026-02-06">2026-02-06</time>
 </div>
 <div class="flex items-center gap-2">
 <i class="fa-regular fa-user text-purple-400"></i>
@@ -175,132 +175,158 @@
 <div class="glass-card p-8 rounded-2xl mb-12">
 <p class="!mb-0 text-lg">
 <strong>
-         BugBot 核心亮点
+         为什么选择 Gemini？
         </strong>
 <br/>
-        Cursor 团队声称，BugBot 能够发现比传统静态工具多
-        <strong>
-         2.5 倍
-        </strong>
-        的真实 Bug。它融合了静态分析的严谨与 AI 大模型的语义理解能力，能够精准识别未处理的异常、逻辑冲突甚至跨文件的引用错误。
+        在 AI 编程领域，Claude 一直是 Cursor 的“原配”，但 Google Gemini（尤其是 1.5/2.5 Pro）正在成为一个不可忽视的挑战者。它拥有 <strong>1M+ Token 的超长上下文</strong>，能一次性读懂整个项目库；更重要的是，Google 为开发者提供了<strong>每日 1000 次的免费调用额度</strong>，这对个人开发者来说极具吸引力。
        </p>
 </div>
 <h2 class="flex items-center gap-3">
-<i class="fa-solid fa-magnifying-glass-chart text-blue-400">
+<i class="fa-solid fa-bolt text-yellow-400">
 </i>
-       一、BugBot 核心功能
+       一、核心优势：不仅仅是免费
       </h2>
-<div class="space-y-6 mb-12">
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         1
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          自动代码审查 (Auto Review)
-         </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-blue-400 font-bold mb-2">
+         1. 100万 Token 上下文
+        </h4>
 <p class="text-sm text-slate-400">
-          当你向 GitHub 提交代码并创建 Pull Request (PR) 时，BugBot 会自动运行。它会扫描变更代码，检查逻辑漏洞、性能隐患及代码规范问题，并直接在 PR 页面留下详细评论。
-         </p>
+         Gemini 2.5 Pro 支持高达 1M 的上下文窗口。这意味着你可以把整个项目的代码、文档甚至相关依赖库都“喂”给它，让它在拥有全局视野的前提下进行重构或 Debug，极大减少了“幻觉”。
+        </p>
 </div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         2
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          一键修复 (One-Click Fix)
-         </h3>
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-green-400 font-bold mb-2">
+         2. 成本优势 (Free Tier)
+        </h4>
 <p class="text-sm text-slate-400">
-          发现问题只是第一步。BugBot 会在评论中提供一个
-          <strong>
-           “Fix in Cursor”
-          </strong>
-          的链接。点击后，它会自动唤起 Cursor 编辑器，跳转到对应文件，并自动填充修复代码，你只需确认即可。
-         </p>
+         相比 <a class="text-blue-400 hover:underline" href="/blog/cursor-pricing-guide">Cursor Pro</a> 每月 $20 的订阅费，Gemini API 为开发者提供了每日 1000 次的免费请求额度。对于轻度使用者或学生党，这几乎等同于“无限续杯”。
+        </p>
 </div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         3
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          上下文感知 (Context Aware)
-         </h3>
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-purple-400 font-bold mb-2">
+         3. 多模态理解
+        </h4>
 <p class="text-sm text-slate-400">
-          不同于普通的 Linter，BugBot 具有全局视野。它能结合项目上下文进行分析，识别跨文件的逻辑引用问题，从而大幅减少误报，确保审查结果更贴合项目实际需求。
-         </p>
+         Gemini 原生支持图片、视频等多模态输入。在 Cursor 中，你可以直接截图网页设计稿或报错界面发给 Gemini，它能迅速生成对应的前端代码或分析错误原因。
+        </p>
 </div>
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-red-400 font-bold mb-2">
+         4. 谷歌生态融合
+        </h4>
+<p class="text-sm text-slate-400">
+         如果你习惯使用 Google 生态，Gemini 可以更方便地结合 Google Docs、Gmail 等工具。例如，你可以让它直接读取 Google Drive 里的需求文档来生成代码。
+        </p>
 </div>
 </div>
 <h2 class="flex items-center gap-3">
-<i class="fa-solid fa-toggle-on text-green-400">
+<i class="fa-solid fa-sliders text-blue-400">
 </i>
-       二、如何开启和使用？
+       二、如何接入？(API + CLI)
       </h2>
 <p>
-       使用 BugBot 非常简单，只需三步配置即可集成到你的工作流中：
+       Cursor 接入 Gemini 主要有两种方式：直接 API 配置和结合 Gemini CLI 使用。
       </p>
-<div class="bg-[#0B0F19] border border-white/10 rounded-xl p-6 mb-8">
-<ol class="list-decimal pl-4 space-y-4 text-slate-300">
+<h3 class="text-white font-bold mb-4">
+       1. Cursor 原生 API 接入
+      </h3>
+<p>
+       这是最简单的方式，适合大多数用户。
+      </p>
+<ol class="list-decimal pl-6 space-y-2 text-slate-300 mb-6">
 <li>
-<strong>
-          连接 GitHub：
-         </strong>
-         在 Cursor 设置页面 (Settings) 找到 “Integrations” 选项，点击 “Connect to GitHub” 并完成授权。
-        </li>
+        前往 <a class="text-blue-400 hover:underline" href="https://aistudio.google.com/" rel="nofollow noopener noreferrer" target="_blank">Google AI Studio</a> 获取 API Key。
+       </li>
 <li>
-<strong>
-          授权仓库：
-         </strong>
-         选择你希望 BugBot 介入审查的 GitHub 仓库进行授权。建议先在测试项目或非核心仓库试用。
-        </li>
+        打开 Cursor，按 <span class="font-code bg-white/10 px-1 rounded">Cmd + Shift + J</span> 打开设置。
+       </li>
 <li>
-<strong>
-          触发审查：
-         </strong>
-         配置完成后，每当你创建新的 PR，BugBot 就会自动开始工作。你也可以在 PR 评论区手动输入
-         <span class="font-code bg-white/10 px-1 rounded text-blue-300">
-          bugbot run
-         </span>
-         来手动触发一次审查。
-        </li>
+        进入 <strong>Models</strong> 选项卡，找到 Gemini 系列模型（如 <span class="font-code">gemini-1.5-pro</span>）。
+       </li>
+<li>
+        输入你的 API Key 并开启模型开关。
+       </li>
 </ol>
+<h3 class="text-white font-bold mb-4">
+       2. 进阶玩法：Gemini CLI
+      </h3>
+<p>
+       Google 推出的 Gemini CLI 工具可以让终端变身 AI 助手，与 Cursor 的终端功能完美配合。
+      </p>
+<div class="bg-[#0B0F19] p-4 rounded-xl border border-white/10 mb-6 font-code text-sm text-slate-300">
+       # 安装 Gemini CLI<br/>
+       pip install gemini-chat-cli<br/><br/>
+       # 在 Cursor 终端中使用<br/>
+       gemini "分析当前目录下的 python 文件，找出潜在的内存泄漏"
+      </div>
+<h2 class="flex items-center gap-3">
+<i class="fa-solid fa-scale-balanced text-purple-400">
+</i>
+       三、巅峰对决：Gemini vs Claude
+      </h2>
+<div class="overflow-x-auto mb-8">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10">
+<th class="p-4 text-white font-medium">维度</th>
+<th class="p-4 text-white font-medium">Gemini 2.5 Pro</th>
+<th class="p-4 text-white font-medium">Claude 3.5 Sonnet</th>
+</tr>
+</thead>
+<tbody class="text-sm text-slate-400">
+<tr class="border-b border-white/5 hover:bg-white/5">
+<td class="p-4 text-white">上下文窗口</td>
+<td class="p-4 text-green-400 font-bold">1,000,000+ Tokens</td>
+<td class="p-4">200,000 Tokens</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5">
+<td class="p-4 text-white">代码逻辑性</td>
+<td class="p-4">优秀，但在复杂架构下偶有“幻觉”</td>
+<td class="p-4 text-green-400 font-bold">极佳，推理严谨，Bug 少</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5">
+<td class="p-4 text-white">使用成本</td>
+<td class="p-4 text-green-400 font-bold">每日 1000 次免费</td>
+<td class="p-4">需订阅 Pro ($20/月)</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/5">
+<td class="p-4 text-white">响应速度</td>
+<td class="p-4">中等</td>
+<td class="p-4 text-green-400 font-bold">非常快</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 class="flex items-center gap-3">
-<i class="fa-solid fa-circle-exclamation text-yellow-400">
+<i class="fa-solid fa-triangle-exclamation text-red-400">
 </i>
-       三、注意事项与计费
+       四、避坑指南
       </h2>
 <ul class="list-disc pl-6 space-y-3 text-slate-300">
 <li>
 <strong>
-         付费功能：
+         环境差异风险：
         </strong>
-        BugBot 是一个独立的高级功能，通常提供
-        <strong>
-         7 天免费试用期
-        </strong>
-        。试用期结束后，会根据模型调用的 Token 消耗量进行计费，不包含在普通的 Pro 订阅中。
+        Gemini 生成的代码有时会忽略你本地环境的特殊配置（如 Python 版本、依赖库版本）。建议配合 <a class="text-blue-400 hover:underline" href="/blog/cursor-rules-guide">Cursor Rules</a> 使用，明确告知 AI 你的环境信息。
        </li>
 <li>
 <strong>
-         权限管理：
+         稳定性波动：
         </strong>
-        BugBot 需要读取和写入仓库、PR 等权限。对于企业级私有仓库，建议先评估安全合规性再进行授权。
+        作为在线 API，Gemini 的响应稳定性偶尔不如 Claude。在进行关键重构时，建议仍以 Claude 为主，Gemini 为辅。
        </li>
 <li>
 <strong>
-         独立运行：
+         隐私考量：
         </strong>
-        BugBot 是云端服务，不依赖你本地的 IDE 是否打开。这意味着它非常适合集成到 CI/CD 流水线中，作为代码合并前的最后一道防线。
+        使用免费版 API 时，Google 可能会使用你的数据进行模型训练。如果你在开发涉密项目，请务必使用付费的企业版 API 或 Cursor 的 Privacy Mode。
        </li>
 </ul>
-<p class="mt-8 text-slate-400 italic">
-       总的来说，BugBot 是一个能有效提升代码质量、减少上线前错误的实用工具，尤其适合在快速开发中作为 AI 生成代码的“质检员”。
+<p class="mt-12 text-slate-400 italic border-t border-white/10 pt-8">
+       总结：Gemini 是 Cursor 生态中一个极具性价比的补充。它可能无法完全替代 Claude 的主力地位，但在处理超长文本分析、多模态任务或预算有限时，它绝对是你最好的帮手。
       </p>
+<!-- Recommended Reading (Will be injected/overwritten by build.py) -->
 
 
 <div class="mt-16 pt-10 border-t border-white/10" id="recommended-reading">
@@ -327,27 +353,6 @@
 </article>
 </a>
 
-<a class="block group h-full" href="/blog/cursor-gemini-guide">
-<article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
-<div class="h-32 bg-slate-900/50 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-900"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<i class="fa-solid fa-code text-4xl text-blue-500/20 group-hover:text-blue-500/40 transition duration-500"></i>
-</div>
-<div class="absolute top-3 left-3">
-<span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/10 text-blue-300 text-[10px] font-mono">技术深度</span>
-</div>
-</div>
-<div class="p-4 flex flex-col flex-grow">
-<h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor 接入 Gemini 深度评测：如何免费解锁谷歌最强 AI 模型</h4>
-<div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
-<div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-06</span></div>
-<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-</div>
-</div>
-</article>
-</a>
-
 <a class="block group h-full" href="/blog/cursor-pricing-guide">
 <article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
 <div class="h-32 bg-slate-900/50 relative overflow-hidden">
@@ -361,6 +366,27 @@
 </div>
 <div class="p-4 flex flex-col flex-grow">
 <h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor 会员价格详解：最新订阅方案与省钱攻略</h4>
+<div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
+<div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-04</span></div>
+<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+</div>
+</div>
+</article>
+</a>
+
+<a class="block group h-full" href="/blog/cursor-editor-review">
+<article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
+<div class="h-32 bg-slate-900/50 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-900"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fa-solid fa-layer-group text-4xl text-blue-500/20 group-hover:text-blue-500/40 transition duration-500"></i>
+</div>
+<div class="absolute top-3 left-3">
+<span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/10 text-blue-300 text-[10px] font-mono">技术深度</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor Editor：不仅仅是 VS Code 的 AI 增强版</h4>
 <div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
 <div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-04</span></div>
 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
@@ -448,9 +474,9 @@
         </h4>
 <ul class="space-y-3 text-sm">
 <li>
-<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-plan-mode">
+<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-rules-guide">
 <span>
-            Cursor Plan 模式教程
+            Cursor Rules 配置指南
            </span>
 <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
 </i>
@@ -459,7 +485,7 @@
 <li>
 <a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-how-to-use">
 <span>
-            Cursor 怎么用？新手指南
+            Cursor 新手教程
            </span>
 <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
 </i>
@@ -473,6 +499,7 @@
 </div>
 </main>
 <!-- Footer will be injected by build.py -->
+
 <footer class="relative z-10 bg-[#050505] border-t border-white/10 pt-16 pb-8 overflow-hidden font-sans">
 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent">
 </div>

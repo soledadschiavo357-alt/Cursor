@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
 <html class="scroll-smooth" lang="zh-CN">
-<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解</title><meta content="Cursor VIP Service." name="description"/><meta content="cursor, ai, code editor" name="keywords"/><link href="https://cursor-vip.pro/blog/cursor-bugbot" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="zh-cn" http-equiv="content-language"/><meta content="Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解" property="og:title"/><meta content="Cursor VIP Service." property="og:description"/><meta content="https://cursor-vip.pro/blog/cursor-bugbot" property="og:url"/><meta content="Cursor-VIP.pro" property="og:site_name"/><meta content="https://cursor-vip.pro/assets/og.png" property="og:image"/><meta content="website" property="og:type"/><meta content="Cursor-VIP Team" name="author"/><meta content="2026-01-24" property="article:published_time"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解" name="twitter:title"/><meta content="Cursor VIP Service." name="twitter:description"/><meta content="https://cursor-vip.pro/assets/og.png" name="twitter:image"/><link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com">
-</script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格</title><meta content="详解 Cursor Rules 配置方法，包括 User Rules 和 Project Rules 的区别与应用场景。通过实战案例教你定制专属 AI 编程助手，提升代码一致性与开发效率。" name="description"/><meta content="cursor, ai, code editor" name="keywords"/><link href="https://cursor-vip.pro/blog/cursor-rules-guide" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="zh-cn" http-equiv="content-language"/><meta content="Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格" property="og:title"/><meta content="详解 Cursor Rules 配置方法，包括 User Rules 和 Project Rules 的区别与应用场景。通过实战案例教你定制专属 AI 编程助手，提升代码一致性与开发效率。" property="og:description"/><meta content="https://cursor-vip.pro/blog/cursor-rules-guide" property="og:url"/><meta content="Cursor-VIP.pro" property="og:site_name"/><meta content="https://cursor-vip.pro/assets/og.png" property="og:image"/><meta content="website" property="og:type"/><meta content="Cursor-VIP Team" name="author"/><meta content="2026-02-06" property="article:published_time"/><meta content="summary_large_image" name="twitter:card"/><meta content="Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格" name="twitter:title"/><meta content="详解 Cursor Rules 配置方法，包括 User Rules 和 Project Rules 的区别与应用场景。通过实战案例教你定制专属 AI 编程助手，提升代码一致性与开发效率。" name="twitter:description"/><meta content="https://cursor-vip.pro/assets/og.png" name="twitter:image"/><link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;⚡&lt;/text&gt;&lt;/svg&gt;" rel="icon" type="image/svg+xml"/><script src="https://cdn.tailwindcss.com"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/><style>
    /* 复用 Gemini 站的核心样式 */
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; background-color: #020617; color: #e2e8f0; }
@@ -28,11 +27,11 @@
   </style><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解",
-  "description": "Cursor VIP Service.",
+  "headline": "Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格",
+  "description": "详解 Cursor Rules 配置方法，包括 User Rules 和 Project Rules 的区别与应用场景。通过实战案例教你定制专属 AI 编程助手，提升代码一致性与开发效率。",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://cursor-vip.pro/blog/cursor-bugbot"
+    "@id": "https://cursor-vip.pro/blog/cursor-rules-guide"
   },
   "author": {
     "@type": "Organization",
@@ -46,7 +45,7 @@
       "url": "https://cursor-vip.pro/logo.svg"
     }
   },
-  "datePublished": "2026-01-24"
+  "datePublished": "2026-02-06"
 }</script><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -66,8 +65,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解",
-      "item": "https://cursor-vip.pro/blog/cursor-bugbot"
+      "name": "Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格",
+      "item": "https://cursor-vip.pro/blog/cursor-rules-guide"
     }
   ]
 }</script></head>
@@ -128,7 +127,7 @@
 <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
 <li><a class="hover:text-white transition" href="/blog/">博客</a></li>
 <li><i class="fa-solid fa-chevron-right text-xs opacity-50"></i></li>
-<li aria-current="page" class="text-slate-200 font-medium truncate">Cursor BugBot 是什么？AI 自动找 Bug 神器功能详解</li>
+<li aria-current="page" class="text-slate-200 font-medium truncate">Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格</li>
 </ol>
 </nav>
 
@@ -139,20 +138,20 @@
 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-600/20 blur-[100px] rounded-full -z-10">
 </div>
 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-mono mb-6">
-<i class="fa-solid fa-bug-slash">
+<i class="fa-solid fa-code">
 </i>
-     功能解析
+     技术深度
     </div>
 <h1 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-     Cursor BugBot
+     Cursor Rules
      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-      功能详解
+      完全指南
      </span>
 <br/>
-     你的 24 小时 AI 代码质检员
+     让 AI 懂你的代码风格
     </h1>
 <p class="text-lg text-slate-400 max-w-2xl mx-auto">
-     Cursor BugBot 是一个自动化代码审查助手，专为 GitHub PR 设计。它不仅能发现潜在 Bug，还能直接提供修复代码，让 Code Review 效率翻倍。
+     你是否厌倦了每次都要纠正 AI 的代码风格？通过 Cursor Rules，你可以为 AI 制定一套“行为准则”，从回复语言到架构规范，让它真正成为你的专属编程助手。
     </p>
 <!-- Meta will be injected by build.py -->
 
@@ -160,7 +159,7 @@
 <div class="flex items-center justify-center gap-6 text-sm text-slate-400 mt-4 font-mono" id="article-meta">
 <div class="flex items-center gap-2">
 <i class="fa-regular fa-calendar text-blue-400"></i>
-<time datetime="2026-01-24">2026-01-24</time>
+<time datetime="2026-02-06">2026-02-06</time>
 </div>
 <div class="flex items-center gap-2">
 <i class="fa-regular fa-user text-purple-400"></i>
@@ -175,158 +174,162 @@
 <div class="glass-card p-8 rounded-2xl mb-12">
 <p class="!mb-0 text-lg">
 <strong>
-         BugBot 核心亮点
+         为什么需要 Cursor Rules？
         </strong>
 <br/>
-        Cursor 团队声称，BugBot 能够发现比传统静态工具多
-        <strong>
-         2.5 倍
-        </strong>
-        的真实 Bug。它融合了静态分析的严谨与 AI 大模型的语义理解能力，能够精准识别未处理的异常、逻辑冲突甚至跨文件的引用错误。
+        在团队协作或大型项目中，代码的一致性至关重要。Cursor Rules 就像是给 AI 发放的“员工手册”，它能约束 AI 在代码生成、重构和修复错误时的行为，避免 AI 产生“幻觉”或写出不符合项目规范的代码。
        </p>
 </div>
 <h2 class="flex items-center gap-3">
-<i class="fa-solid fa-magnifying-glass-chart text-blue-400">
+<i class="fa-solid fa-layer-group text-blue-400">
 </i>
-       一、BugBot 核心功能
-      </h2>
-<div class="space-y-6 mb-12">
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         1
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          自动代码审查 (Auto Review)
-         </h3>
-<p class="text-sm text-slate-400">
-          当你向 GitHub 提交代码并创建 Pull Request (PR) 时，BugBot 会自动运行。它会扫描变更代码，检查逻辑漏洞、性能隐患及代码规范问题，并直接在 PR 页面留下详细评论。
-         </p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         2
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          一键修复 (One-Click Fix)
-         </h3>
-<p class="text-sm text-slate-400">
-          发现问题只是第一步。BugBot 会在评论中提供一个
-          <strong>
-           “Fix in Cursor”
-          </strong>
-          的链接。点击后，它会自动唤起 Cursor 编辑器，跳转到对应文件，并自动填充修复代码，你只需确认即可。
-         </p>
-</div>
-</div>
-<div class="flex gap-4 items-start">
-<div class="w-8 h-8 rounded bg-blue-500/10 flex items-center justify-center text-blue-400 shrink-0 mt-1 font-bold">
-         3
-        </div>
-<div>
-<h3 class="!mt-0 !text-lg text-white">
-          上下文感知 (Context Aware)
-         </h3>
-<p class="text-sm text-slate-400">
-          不同于普通的 Linter，BugBot 具有全局视野。它能结合项目上下文进行分析，识别跨文件的逻辑引用问题，从而大幅减少误报，确保审查结果更贴合项目实际需求。
-         </p>
-</div>
-</div>
-</div>
-<h2 class="flex items-center gap-3">
-<i class="fa-solid fa-toggle-on text-green-400">
-</i>
-       二、如何开启和使用？
+       一、核心概念：User Rules vs Project Rules
       </h2>
 <p>
-       使用 BugBot 非常简单，只需三步配置即可集成到你的工作流中：
+       Cursor Rules 分为两个层级，理解它们的区别是配置的第一步。
       </p>
-<div class="bg-[#0B0F19] border border-white/10 rounded-xl p-6 mb-8">
-<ol class="list-decimal pl-4 space-y-4 text-slate-300">
-<li>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-blue-400 font-bold mb-2">
+         User Rules (用户规则)
+        </h4>
+<p class="text-sm text-slate-400 mb-2">
 <strong>
-          连接 GitHub：
+          范围：
          </strong>
-         在 Cursor 设置页面 (Settings) 找到 “Integrations” 选项，点击 “Connect to GitHub” 并完成授权。
-        </li>
-<li>
+         全局生效，适用于所有项目。
+        </p>
+<p class="text-sm text-slate-400">
+         适合定义你个人的通用偏好，比如“始终用中文回复”、“Python 代码使用 4 空格缩进”等。配置路径在 <span class="font-code bg-white/10 px-1 rounded">Settings -&gt; Rules -&gt; User Rules</span>。
+        </p>
+</div>
+<div class="bg-white/5 p-6 rounded-xl border border-white/5">
+<h4 class="text-purple-400 font-bold mb-2">
+         Project Rules (项目规则)
+        </h4>
+<p class="text-sm text-slate-400 mb-2">
 <strong>
-          授权仓库：
+          范围：
          </strong>
-         选择你希望 BugBot 介入审查的 GitHub 仓库进行授权。建议先在测试项目或非核心仓库试用。
-        </li>
-<li>
-<strong>
-          触发审查：
-         </strong>
-         配置完成后，每当你创建新的 PR，BugBot 就会自动开始工作。你也可以在 PR 评论区手动输入
-         <span class="font-code bg-white/10 px-1 rounded text-blue-300">
-          bugbot run
-         </span>
-         来手动触发一次审查。
-        </li>
-</ol>
+         仅当前项目生效。
+        </p>
+<p class="text-sm text-slate-400">
+         存放在项目根目录的 <span class="font-code bg-white/10 px-1 rounded">.cursor/rules</span> 文件夹中。适合定义具体项目的技术栈规范，如“组件必须使用函数式编程”、“API 调用需用 try-catch 包裹”。
+        </p>
+</div>
 </div>
 <h2 class="flex items-center gap-3">
-<i class="fa-solid fa-circle-exclamation text-yellow-400">
+<i class="fa-solid fa-sliders text-purple-400">
 </i>
-       三、注意事项与计费
+       二、如何配置？实战操作指南
+      </h2>
+<h3 class="text-white font-bold mb-4">
+       1. 配置 User Rules (全局通用)
+      </h3>
+<p>
+       这是最简单的上手方式。点击 Cursor 设置图标，进入 <strong>Rules</strong> 选项卡。你可以在这里输入一段自然语言描述，例如：
+      </p>
+<div class="bg-[#0B0F19] p-4 rounded-xl border border-white/10 mb-6 font-code text-sm text-slate-300">
+       Always respond in 中文.<br/>
+       Be concise and avoid unnecessary explanations.<br/>
+       For Python code, follow PEP 8 standards.
+      </div>
+<h3 class="text-white font-bold mb-4">
+       2. 配置 Project Rules (项目级约束)
+      </h3>
+<p>
+       对于复杂项目，我们推荐使用文件配置。在项目根目录下创建 <span class="font-code">.cursor/rules</span> 文件夹，并在其中创建以 <span class="font-code">.mdc</span> 结尾的文件。
+      </p>
+<p>
+       例如，创建一个 <span class="font-code">vue3-standards.mdc</span> 文件：
+      </p>
+<div class="bg-[#0B0F19] p-4 rounded-xl border border-white/10 mb-6 overflow-x-auto">
+<pre class="font-code text-sm text-slate-300"><code># Vue 3 开发规范
+
+## 核心原则
+1. 所有组件必须使用 &lt;script setup&gt; 语法。
+2. 禁止使用 Options API，必须使用 Composition API。
+3. 样式必须使用 &lt;style scoped&gt;。
+
+## 命名约定
+- 组件文件名使用 PascalCase (如 UserCard.vue)。
+- 事件处理函数以 handle 开头 (如 handleClick)。
+</code></pre>
+</div>
+<h2 class="flex items-center gap-3">
+<i class="fa-solid fa-microchip text-green-400">
+</i>
+       三、规则的 4 种触发方式
+      </h2>
+<p>
+       在配置 Project Rules 时，你可以指定规则的触发时机，这让 Cursor 非常智能。
+      </p>
+<ul class="list-none pl-0 space-y-4">
+<li class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-code bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm shrink-0">Always</span>
+<span class="text-slate-400 text-sm">
+<strong>始终应用：</strong> 无论你在做什么，这条规则都会被注入到 AI 的上下文中。适用于最核心的项目规范。
+        </span>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-code bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm shrink-0">Auto Attached</span>
+<span class="text-slate-400 text-sm">
+<strong>自动关联：</strong> 当你打开或引用特定类型的文件（如 *.tsx, *.py）时自动触发。这是最常用的模式。
+        </span>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-code bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm shrink-0">Agent Requested</span>
+<span class="text-slate-400 text-sm">
+<strong>智能请求：</strong> 由 AI 根据上下文判断是否需要这条规则。你需要提供清晰的规则描述供 AI 理解。
+        </span>
+</li>
+<li class="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
+<span class="font-code bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-sm shrink-0">Manual</span>
+<span class="text-slate-400 text-sm">
+<strong>手动触发：</strong> 只有当你在对话中显式输入 <span class="font-code">@规则名</span> 时才会生效。
+        </span>
+</li>
+</ul>
+<h2 class="flex items-center gap-3">
+<i class="fa-solid fa-star text-yellow-400">
+</i>
+       四、最佳实践与避坑指南
       </h2>
 <ul class="list-disc pl-6 space-y-3 text-slate-300">
 <li>
 <strong>
-         付费功能：
+         优先级原则：
         </strong>
-        BugBot 是一个独立的高级功能，通常提供
-        <strong>
-         7 天免费试用期
-        </strong>
-        。试用期结束后，会根据模型调用的 Token 消耗量进行计费，不包含在普通的 Pro 订阅中。
+        当规则发生冲突时，Project Rules 的优先级高于 User Rules。
        </li>
 <li>
 <strong>
-         权限管理：
+         Git 版本控制：
         </strong>
-        BugBot 需要读取和写入仓库、PR 等权限。对于企业级私有仓库，建议先评估安全合规性再进行授权。
+        强烈建议将 <span class="font-code">.cursor/rules</span> 文件夹提交到 Git 仓库，这样团队所有成员都能享受到统一的 AI 辅助规范。
        </li>
 <li>
 <strong>
-         独立运行：
+         保持简洁：
         </strong>
-        BugBot 是云端服务，不依赖你本地的 IDE 是否打开。这意味着它非常适合集成到 CI/CD 流水线中，作为代码合并前的最后一道防线。
+        规则描述越清晰、越具体，AI 执行得越好。避免模棱两可的形容词，多用具体的代码示例。
+       </li>
+<li>
+<strong>
+         模块化管理：
+        </strong>
+        不要把所有规则写在一个文件里。按技术栈（如 frontend, backend）或功能模块（如 auth, payment）拆分成多个 .mdc 文件。
        </li>
 </ul>
-<p class="mt-8 text-slate-400 italic">
-       总的来说，BugBot 是一个能有效提升代码质量、减少上线前错误的实用工具，尤其适合在快速开发中作为 AI 生成代码的“质检员”。
+<p class="mt-12 text-slate-400 italic border-t border-white/10 pt-8">
+       总结：Cursor Rules 是让通用 AI 变成“懂你”的专属助手的关键。从设置简单的 User Rules 开始，逐步建立完善的 Project Rules 体系，你会发现编码效率会有质的飞跃。
       </p>
+<!-- Recommended Reading (Will be injected/overwritten by build.py) -->
 
 
 <div class="mt-16 pt-10 border-t border-white/10" id="recommended-reading">
 <h3 class="text-2xl font-bold text-white mb-8">推荐阅读</h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<a class="block group h-full" href="/blog/cursor-rules-guide">
-<article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
-<div class="h-32 bg-slate-900/50 relative overflow-hidden">
-<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-900"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<i class="fa-solid fa-server text-4xl text-blue-500/20 group-hover:text-blue-500/40 transition duration-500"></i>
-</div>
-<div class="absolute top-3 left-3">
-<span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/10 text-blue-300 text-[10px] font-mono">技术深度</span>
-</div>
-</div>
-<div class="p-4 flex flex-col flex-grow">
-<h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor Rules 完全指南：如何通过规则让 AI 懂你的代码风格</h4>
-<div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
-<div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-06</span></div>
-<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-</div>
-</div>
-</article>
-</a>
-
 <a class="block group h-full" href="/blog/cursor-gemini-guide">
 <article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
 <div class="h-32 bg-slate-900/50 relative overflow-hidden">
@@ -361,6 +364,27 @@
 </div>
 <div class="p-4 flex flex-col flex-grow">
 <h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor 会员价格详解：最新订阅方案与省钱攻略</h4>
+<div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
+<div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-04</span></div>
+<i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+</div>
+</div>
+</article>
+</a>
+
+<a class="block group h-full" href="/blog/cursor-editor-review">
+<article class="glass-card h-full rounded-xl overflow-hidden flex flex-col bg-[#0B0F19] border border-white/10 hover:border-blue-500/30 transition duration-300">
+<div class="h-32 bg-slate-900/50 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-slate-900"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<i class="fa-solid fa-layer-group text-4xl text-blue-500/20 group-hover:text-blue-500/40 transition duration-500"></i>
+</div>
+<div class="absolute top-3 left-3">
+<span class="px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/10 text-blue-300 text-[10px] font-mono">技术深度</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-grow">
+<h4 class="text-base font-bold text-white mb-2 group-hover:text-blue-400 transition line-clamp-2">Cursor Editor：不仅仅是 VS Code 的 AI 增强版</h4>
 <div class="flex items-center justify-between text-[10px] text-slate-500 mt-auto pt-3 border-t border-white/5">
 <div class="flex items-center gap-1.5"><i class="fa-regular fa-calendar"></i><span>2026-02-04</span></div>
 <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
@@ -448,18 +472,18 @@
         </h4>
 <ul class="space-y-3 text-sm">
 <li>
-<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-plan-mode">
+<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-how-to-use">
 <span>
-            Cursor Plan 模式教程
+            Cursor 新手教程
            </span>
 <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
 </i>
 </a>
 </li>
 <li>
-<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-how-to-use">
+<a class="flex items-center justify-between text-slate-400 hover:text-blue-400 transition group" href="/blog/cursor-plan-mode">
 <span>
-            Cursor 怎么用？新手指南
+            Cursor Plan 模式教程
            </span>
 <i class="fa-solid fa-chevron-right text-xs opacity-0 group-hover:opacity-100 transition-opacity">
 </i>
