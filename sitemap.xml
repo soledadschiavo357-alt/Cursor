@@ -2,15 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cursor-vip.pro/</loc>
-    <lastmod>2026-01-25</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cursor-vip.pro/blog/cursor-vs-claude-code/</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cursor-vip.pro/blog/cursor-mcp-guide/</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-rules-guide/</loc>
@@ -26,55 +38,55 @@
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-pricing-guide/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-editor-review/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-plan-mode/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-recharge-guide/</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-chinese-settings/</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-unlimited/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-bugbot/</loc>
-    <lastmod>2026-01-24</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-usage-check/</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cursor-vip.pro/blog/cursor-how-to-use/</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
