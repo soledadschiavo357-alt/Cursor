@@ -845,11 +845,11 @@ def main():
         # This ensures sitemap looks historically accurate for old posts,
         # while allowing FUTURE updates (after Feb 5th) to trigger a new lastmod.
         
-        if date_modified in ['2026-02-03', '2026-02-04']:
+        if date_modified in ['2026-02-03', '2026-02-04', '2026-02-11', '2026-02-12', '2026-02-13']:
             try:
                 pub_dt = datetime.datetime.strptime(date_published, "%Y-%m-%d")
-                # If published before Feb 1st, and modified in batch fix window -> use published date
-                if pub_dt < datetime.datetime(2026, 2, 1):
+                # If published before Feb 15th (covering all current articles), and modified in batch fix window -> use published date
+                if pub_dt < datetime.datetime(2026, 2, 15):
                     date_modified = date_published
             except:
                 pass
